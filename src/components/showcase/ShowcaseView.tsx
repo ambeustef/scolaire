@@ -35,6 +35,7 @@ import {
 import { useApp } from '../../context/AppContext';
 import { LoginModal } from './LoginModal';
 import { PreRegisterModal } from './PreRegisterModal';
+import { WeatherEffects } from './WeatherEffects';
 import { UserRole } from '../../types';
 
 export const ShowcaseView: React.FC = () => {
@@ -285,6 +286,9 @@ export const ShowcaseView: React.FC = () => {
           <path d="M0,190 C220,140 380,210 600,160 C800,115 980,205 1200,150 C1320,120 1380,160 1440,150 L1440,220 L0,220 Z" fill="#15803D" opacity="0.15" />
           <path d="M0,210 C260,180 460,220 700,195 C920,172 1140,218 1440,190 L1440,220 L0,220 Z" fill="#064E3B" opacity="0.22" />
         </svg>
+
+        {/* Real-time weather over Duékoué: sun glow by day, stars by night, rain when it actually rains */}
+        <WeatherEffects />
 
         <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">

@@ -43,6 +43,29 @@
   }
 }
 
+/* Weather/time-of-day motion effects (hero banner) */
+@keyframes sun-glow {
+  0%, 100% { opacity: 0.55; transform: scale(1); }
+  50% { opacity: 0.9; transform: scale(1.08); }
+}
+@keyframes sun-ray-spin {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+@keyframes twinkle {
+  0%, 100% { opacity: 0.15; }
+  50% { opacity: 0.9; }
+}
+@keyframes rain-fall {
+  0% { transform: translateY(-10vh); opacity: 0; }
+  8% { opacity: 1; }
+  100% { transform: translateY(110vh); opacity: 0.5; }
+}
+.animate-sun-glow { animation: sun-glow 4s ease-in-out infinite; }
+.animate-sun-ray-spin { animation: sun-ray-spin 60s linear infinite; }
+.animate-twinkle { animation: twinkle 3s ease-in-out infinite; }
+.animate-rain-fall { animation: rain-fall linear infinite; }
+
 /* Custom scrollbars */
 ::-webkit-scrollbar {
   width: 6px;
