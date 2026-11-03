@@ -63,7 +63,7 @@ export const ShowcaseView: React.FC = () => {
     const timer = setInterval(() => setNow(new Date()), 1000);
     return () => clearInterval(timer);
   }, []);
-  const headerDay = now.toLocaleDateString('fr-FR', { weekday: 'short' });
+  const headerDay = now.toLocaleDateString('fr-FR', { weekday: 'long', day: '2-digit', month: 'long' });
   const headerTime = now.toLocaleTimeString('fr-FR', { hour: '2-digit', minute: '2-digit' });
 
   const navLinks = [
@@ -235,10 +235,10 @@ export const ShowcaseView: React.FC = () => {
               </button>
             )}
 
-            {/* Live clock — day & time, shown once there's ample room (avoids re-cramping the xl nav layout) */}
-            <div className="hidden 2xl:flex items-center gap-1 text-xs font-bold text-slate-500 dark:text-slate-400 whitespace-nowrap shrink-0">
-              <span className="capitalize">{headerDay}</span>
-              <span className="tabular-nums text-slate-700 dark:text-slate-200">{headerTime}</span>
+            {/* Live clock — big day & time, shown once there's ample room (avoids re-cramping the xl nav layout) */}
+            <div className="hidden 2xl:flex flex-col items-end leading-none pl-4 ml-1 border-l border-slate-200 dark:border-slate-700 shrink-0">
+              <span className="text-2xl font-black text-blue-700 dark:text-blue-400 tabular-nums tracking-tight">{headerTime}</span>
+              <span className="mt-1 text-[11px] font-bold text-slate-500 dark:text-slate-400 capitalize whitespace-nowrap">{headerDay}</span>
             </div>
 
             {/* Mobile / tablet nav toggle — covers the range where the inline nav is hidden */}
