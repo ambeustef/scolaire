@@ -164,8 +164,12 @@ export const ShowcaseView: React.FC = () => {
         <div className="max-w-7xl 2xl:max-w-[90rem] mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between gap-3">
           {/* Logo & School Identity */}
           <div className="flex items-center gap-2.5 sm:gap-3.5 min-w-0 shrink">
-            <div className="w-10 h-10 sm:w-12 sm:h-12 rounded-2xl bg-gradient-to-br from-[#142B49] to-blue-700 text-white flex items-center justify-center shadow-lg shadow-blue-900/20 ring-2 ring-blue-500/20 shrink-0">
-              <School className="w-5 h-5 sm:w-6 sm:h-6 text-amber-300" />
+            <div className="w-10 h-10 sm:w-12 sm:h-12 rounded-2xl overflow-hidden shadow-lg shadow-blue-900/20 ring-2 ring-blue-500/20 shrink-0">
+              <img
+                src="/images/campus/equipe-direction.webp"
+                alt={currentEstablishment.name}
+                className="w-full h-full object-cover object-top"
+              />
             </div>
             <div className="min-w-0">
               <h1 className="text-sm sm:text-lg xl:text-xl font-black text-slate-900 dark:text-white tracking-tight whitespace-nowrap truncate">
