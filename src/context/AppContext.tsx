@@ -202,7 +202,7 @@ export const AppProvider: React.FC<{ children: React.ReactNode }> = ({ children 
     {
       id: 'notif-1',
       title: 'Rentrée du 1er Trimestre',
-      message: 'La rentrée administrative et académique 2024-2025 est ouverte.',
+      message: 'La rentrée administrative et académique 2026-2027 est ouverte.',
       date: 'Aujourd’hui',
       read: false,
       type: 'info',

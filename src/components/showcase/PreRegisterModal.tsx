@@ -42,7 +42,7 @@ export const PreRegisterModal: React.FC<PreRegisterModalProps> = ({ onClose }) =
     if (!studentLastName || !studentFirstName || !parentName || !parentPhone) return;
 
     const randomNum = Math.floor(1000 + Math.random() * 9000);
-    const code = `DOS-CMB-2024-${randomNum}`;
+    const code = `DOS-CMB-${new Date().getFullYear()}-${randomNum}`;
     setDossierNumber(code);
     setSubmitted(true);
   };
@@ -58,7 +58,7 @@ export const PreRegisterModal: React.FC<PreRegisterModalProps> = ({ onClose }) =
             </div>
             <div>
               <span className="text-[10px] uppercase font-bold tracking-wider text-blue-300 block">
-                Session Rentrée 2024-2025
+                Session Rentrée {currentEstablishment.currentYear}
               </span>
               <h2 className="text-xl font-black text-white">Demande de Pré-Inscription</h2>
               <p className="text-xs text-slate-300 mt-0.5">{currentEstablishment.name}</p>

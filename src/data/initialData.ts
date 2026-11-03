@@ -91,7 +91,7 @@ export const INITIAL_ESTABLISHMENTS: Establishment[] = [
     email: 'contact@cm-bagohouo.ci',
     directorName: 'M. Kouadio Laurent',
     motto: 'Discipline - Travail - Succès',
-    currentYear: '2024-2025',
+    currentYear: '2026-2027',
     logoUrl: 'https://images.unsplash.com/photo-1546410531-bb4caa6b424d?auto=format&fit=crop&w=120&h=120&q=80',
   },
   {
@@ -106,7 +106,7 @@ export const INITIAL_ESTABLISHMENTS: Establishment[] = [
     email: 'direction@clm-plateau.ci',
     directorName: 'Mme Koné Aïssata',
     motto: 'Excellence et Rigueur Républicaine',
-    currentYear: '2024-2025',
+    currentYear: '2026-2027',
     logoUrl: 'https://images.unsplash.com/photo-1523050854058-8df90110c9f1?auto=format&fit=crop&w=120&h=120&q=80',
   },
 ];

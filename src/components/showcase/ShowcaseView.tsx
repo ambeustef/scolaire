@@ -1035,7 +1035,7 @@ export const ShowcaseView: React.FC = () => {
               </h3>
             </div>
             <span className="text-xs text-slate-500 dark:text-slate-400 font-medium">
-              Année 2024-2025 · Bagohouo
+              Année {currentEstablishment.currentYear} · Bagohouo
             </span>
           </div>
 
