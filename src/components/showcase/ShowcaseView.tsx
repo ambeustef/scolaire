@@ -29,6 +29,12 @@ import {
   Menu,
   X,
   TreePine,
+  Bot,
+  ChevronDown,
+  Plus,
+  Minus,
+  TrendingUp,
+  Zap,
 } from 'lucide-react';
 import { useApp } from '../../context/AppContext';
 import { LoginModal } from './LoginModal';
@@ -68,6 +74,37 @@ export const ShowcaseView: React.FC = () => {
   const [contactPhone, setContactPhone] = useState('');
   const [contactMessage, setContactMessage] = useState('');
   const [contactSent, setContactSent] = useState(false);
+
+  // Hero quick pre-registration form state
+  const [heroName, setHeroName] = useState('');
+  const [heroPhone, setHeroPhone] = useState('');
+  const [heroLevel, setHeroLevel] = useState('');
+
+  const handleHeroPreRegisterSubmit = (e: React.FormEvent) => {
+    e.preventDefault();
+    setShowPreRegisterModal(true);
+  };
+
+  // FAQ accordion state
+  const [openFaqIndex, setOpenFaqIndex] = useState<number | null>(0);
+  const faqItems = [
+    {
+      q: "Comment inscrire mon enfant au Collège Moderne Bagohouo ?",
+      a: "Cliquez sur « Demande de Pré-inscription », remplissez le formulaire en ligne (identité, classe souhaitée, contact). Le secrétariat vous recontacte sous 48h pour finaliser le dossier et le paiement.",
+    },
+    {
+      q: "Comment consulter les notes et le bulletin de mon enfant ?",
+      a: "Connectez-vous à l'Espace Parents avec les identifiants transmis par l'établissement. Les notes, moyennes et bulletins trimestriels y sont disponibles en temps réel, dès leur validation par le conseil de classe.",
+    },
+    {
+      q: "Quels moyens de paiement sont acceptés pour la scolarité ?",
+      a: "La scolarité peut être réglée en espèces au bureau de la comptabilité, ou via Mobile Money (Wave, Orange Money, MTN MoMo). Un reçu officiel numérique est émis instantanément après chaque versement.",
+    },
+    {
+      q: "Que faire en cas d'absence ou de retard de mon enfant ?",
+      a: "La Vie Scolaire enregistre chaque absence et retard dans la journée. Un parent reçoit automatiquement une notification, et peut déposer un justificatif directement depuis son espace.",
+    },
+  ];
 
   const handleOpenLoginWithRole = (role: UserRole) => {
     setDefaultLoginRole(role);
@@ -233,11 +270,11 @@ export const ShowcaseView: React.FC = () => {
         )}
       </header>
 
-      {/* 3. Hero Section */}
-      <section className="relative overflow-hidden bg-gradient-to-b from-blue-50 via-white to-white py-16 sm:py-24">
+      {/* 3. Hero Section — soft diagonal pastel gradient, text left / signup-style card right (à la Zoho) */}
+      <section className="relative overflow-hidden bg-gradient-to-br from-amber-50 via-blue-50 to-indigo-100 py-16 sm:py-24">
         {/* Decorative Grid Background */}
         <div
-          className="absolute inset-0 opacity-[0.07] bg-[radial-gradient(#142B49_1px,transparent_1px)] [background-size:24px_24px] pointer-events-none"
+          className="absolute inset-0 opacity-[0.06] bg-[radial-gradient(#142B49_1px,transparent_1px)] [background-size:24px_24px] pointer-events-none"
           aria-hidden="true"
         />
 
@@ -248,9 +285,9 @@ export const ShowcaseView: React.FC = () => {
           preserveAspectRatio="none"
           aria-hidden="true"
         >
-          <path d="M0,160 C180,100 320,190 520,130 C720,70 860,180 1060,120 C1240,65 1340,140 1440,110 L1440,220 L0,220 Z" fill="#16A34A" opacity="0.12" />
-          <path d="M0,190 C220,140 380,210 600,160 C800,115 980,205 1200,150 C1320,120 1380,160 1440,150 L1440,220 L0,220 Z" fill="#15803D" opacity="0.18" />
-          <path d="M0,210 C260,180 460,220 700,195 C920,172 1140,218 1440,190 L1440,220 L0,220 Z" fill="#064E3B" opacity="0.28" />
+          <path d="M0,160 C180,100 320,190 520,130 C720,70 860,180 1060,120 C1240,65 1340,140 1440,110 L1440,220 L0,220 Z" fill="#16A34A" opacity="0.10" />
+          <path d="M0,190 C220,140 380,210 600,160 C800,115 980,205 1200,150 C1320,120 1380,160 1440,150 L1440,220 L0,220 Z" fill="#15803D" opacity="0.15" />
+          <path d="M0,210 C260,180 460,220 700,195 C920,172 1140,218 1440,190 L1440,220 L0,220 Z" fill="#064E3B" opacity="0.22" />
         </svg>
 
         <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -258,27 +295,28 @@ export const ShowcaseView: React.FC = () => {
             {/* Left Column: Heading & CTAs */}
             <div className="lg:col-span-7 space-y-6 text-center lg:text-left">
               <div className="flex flex-wrap items-center justify-center lg:justify-start gap-2">
-                <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-blue-50 border border-blue-200 text-xs font-semibold text-blue-700">
+                <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-white/70 border border-blue-200 text-xs font-semibold text-blue-700">
                   <span className="w-2 h-2 rounded-full bg-emerald-500 animate-pulse"></span>
                   <span>Portail Numérique Officiel · Année Scolaire {currentEstablishment.currentYear}</span>
                 </div>
-                <div className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-emerald-50 border border-emerald-200 text-xs font-semibold text-emerald-700">
+                <div className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-white/70 border border-emerald-200 text-xs font-semibold text-emerald-700">
                   <TreePine className="w-3.5 h-3.5" />
                   <span>Terre du Guémon</span>
                 </div>
               </div>
 
               <h2 className="text-3xl sm:text-5xl lg:text-5xl font-black text-slate-900 tracking-tight leading-tight">
-                Former les leaders de demain au cœur du{' '}
+                La plateforme scolaire qui simplifie votre{' '}
                 <span className="text-amber-600 underline decoration-amber-400/60 decoration-4">
-                  Guémon
+                  quotidien
                 </span>
+                .
               </h2>
 
               <p className="text-sm sm:text-base text-slate-600 max-w-2xl mx-auto lg:mx-0 leading-relaxed font-normal">
                 Bienvenue sur la plateforme officielle du <strong className="text-slate-900">{currentEstablishment.name}</strong>.
-                Un établissement d’excellence engagé dans la réussite éducative, la rigueur républicaine
-                et le suivi pédagogique en direct pour les élèves et les familles de Bagohouo.
+                Notes, assiduité, finances et communication réunis au même endroit,
+                pour la direction, les enseignants, les parents et les élèves.
               </p>
 
               {/* Action Buttons */}
@@ -318,69 +356,110 @@ export const ShowcaseView: React.FC = () => {
               </div>
             </div>
 
-            {/* Right Column: Visual Showcase Card */}
+            {/* Right Column: Quick pre-registration card (à la Zoho signup card) */}
             <div className="lg:col-span-5">
-              <div className="relative rounded-3xl bg-white p-6 sm:p-8 border border-slate-200 shadow-xl shadow-slate-900/5">
-                <div className="flex items-center justify-between pb-4 border-b border-slate-100">
-                  <div className="flex items-center gap-3">
-                    <img
-                      src={currentEstablishment.logoUrl}
-                      alt="Logo CMB"
-                      className="w-12 h-12 rounded-xl object-cover ring-2 ring-slate-100"
+              <form
+                onSubmit={handleHeroPreRegisterSubmit}
+                className="relative rounded-3xl bg-white p-6 sm:p-7 border border-slate-200 shadow-2xl shadow-slate-900/10"
+              >
+                <p className="text-base font-black text-slate-900">Pré-inscription rapide</p>
+                <p className="text-xs text-slate-500 mt-1">Démarrez votre dossier en moins d'une minute.</p>
+
+                <div className="mt-5 space-y-3">
+                  <div>
+                    <label className="text-[11px] font-bold text-slate-600">Nom complet de l'élève</label>
+                    <input
+                      type="text"
+                      required
+                      value={heroName}
+                      onChange={(e) => setHeroName(e.target.value)}
+                      placeholder="Ex: Koffi Aya Marie"
+                      className="mt-1 w-full px-3.5 py-2.5 text-sm rounded-xl border border-slate-300 focus:ring-2 focus:ring-blue-500 focus:border-blue-500 outline-hidden placeholder-slate-400"
                     />
-                    <div>
-                      <p className="text-xs uppercase font-extrabold text-amber-600">Collège Moderne</p>
-                      <p className="text-sm font-bold text-slate-900">Bagohouo, Duékoué</p>
-                    </div>
                   </div>
-                  <span className="text-[10px] font-bold px-2 py-0.5 rounded-full bg-emerald-50 text-emerald-700 border border-emerald-200">
-                    Établissement Agréé
-                  </span>
-                </div>
-
-                <div className="mt-5 space-y-4">
-                  <div className="p-3.5 rounded-2xl bg-slate-50 border border-slate-100 flex items-center gap-3">
-                    <div className="w-10 h-10 rounded-xl bg-blue-50 text-blue-600 flex items-center justify-center font-bold">
-                      <GraduationCap className="w-5 h-5" />
-                    </div>
-                    <div className="flex-1 min-w-0">
-                      <p className="text-xs font-bold text-slate-900">Directeur de l'Établissement</p>
-                      <p className="text-[11px] text-slate-500">{currentEstablishment.directorName}</p>
-                    </div>
+                  <div>
+                    <label className="text-[11px] font-bold text-slate-600">Numéro de téléphone du parent</label>
+                    <input
+                      type="tel"
+                      required
+                      value={heroPhone}
+                      onChange={(e) => setHeroPhone(e.target.value)}
+                      placeholder="+225 07 00 00 00 00"
+                      className="mt-1 w-full px-3.5 py-2.5 text-sm rounded-xl border border-slate-300 focus:ring-2 focus:ring-blue-500 focus:border-blue-500 outline-hidden placeholder-slate-400"
+                    />
                   </div>
-
-                  <div className="p-3.5 rounded-2xl bg-slate-50 border border-slate-100 flex items-center gap-3">
-                    <div className="w-10 h-10 rounded-xl bg-amber-50 text-amber-600 flex items-center justify-center font-bold">
-                      <Award className="w-5 h-5" />
-                    </div>
-                    <div className="flex-1 min-w-0">
-                      <p className="text-xs font-bold text-slate-900">Taux de Réussite BEPC 2024</p>
-                      <p className="text-[11px] text-slate-500">96.4% d’admis parmi les candidats présentés</p>
-                    </div>
-                  </div>
-
-                  <div className="p-3.5 rounded-2xl bg-slate-50 border border-slate-100 flex items-center gap-3">
-                    <div className="w-10 h-10 rounded-xl bg-emerald-50 text-emerald-600 flex items-center justify-center font-bold">
-                      <Clock className="w-5 h-5" />
-                    </div>
-                    <div className="flex-1 min-w-0">
-                      <p className="text-xs font-bold text-slate-900">Horaires des Cours</p>
-                      <p className="text-[11px] text-slate-500">Lundi au Vendredi : 07h30 - 17h30 (Pause 12h-14h)</p>
-                    </div>
+                  <div>
+                    <label className="text-[11px] font-bold text-slate-600">Classe souhaitée</label>
+                    <select
+                      value={heroLevel}
+                      onChange={(e) => setHeroLevel(e.target.value)}
+                      className="mt-1 w-full px-3.5 py-2.5 text-sm rounded-xl border border-slate-300 focus:ring-2 focus:ring-blue-500 focus:border-blue-500 outline-hidden text-slate-700 bg-white"
+                    >
+                      <option value="">Sélectionner une classe</option>
+                      <option>6ème</option>
+                      <option>5ème</option>
+                      <option>4ème</option>
+                      <option>3ème</option>
+                      <option>2nde</option>
+                      <option>1ère</option>
+                      <option>Terminale</option>
+                    </select>
                   </div>
                 </div>
 
-                <div className="mt-6 pt-4 border-t border-slate-100 flex items-center justify-between text-xs">
-                  <span className="text-slate-500">Envie de rejoindre l'établissement ?</span>
+                <p className="mt-3 text-[10px] text-slate-400 leading-relaxed">
+                  En soumettant ce formulaire, vous acceptez d'être contacté par le secrétariat
+                  du {currentEstablishment.name} pour finaliser votre dossier.
+                </p>
+
+                <button
+                  type="submit"
+                  className="mt-4 w-full py-3 rounded-xl bg-blue-600 hover:bg-blue-500 text-white font-extrabold text-sm shadow-lg shadow-blue-500/20 transition-all cursor-pointer"
+                >
+                  COMMENCER
+                </button>
+
+                <div className="mt-5 flex items-center gap-3">
+                  <span className="flex-1 h-px bg-slate-100" />
+                  <span className="text-[10px] font-bold text-slate-400 uppercase">ou accès rapide démo</span>
+                  <span className="flex-1 h-px bg-slate-100" />
+                </div>
+
+                <div className="mt-3 grid grid-cols-4 gap-2">
                   <button
-                    onClick={() => setShowPreRegisterModal(true)}
-                    className="font-bold text-amber-600 hover:text-amber-700 transition-colors flex items-center gap-1"
+                    type="button"
+                    onClick={() => handleOpenLoginWithRole('directeur')}
+                    title="Démo Direction"
+                    className="flex items-center justify-center py-2.5 rounded-xl border border-slate-200 text-blue-600 hover:bg-blue-50 transition-colors"
                   >
-                    <span>Postuler</span>
-                    <ChevronRight className="w-3.5 h-3.5" />
+                    <ShieldCheck className="w-4 h-4" />
+                  </button>
+                  <button
+                    type="button"
+                    onClick={() => handleOpenLoginWithRole('enseignant')}
+                    title="Démo Enseignant"
+                    className="flex items-center justify-center py-2.5 rounded-xl border border-slate-200 text-indigo-600 hover:bg-indigo-50 transition-colors"
+                  >
+                    <GraduationCap className="w-4 h-4" />
+                  </button>
+                  <button
+                    type="button"
+                    onClick={() => handleOpenLoginWithRole('parent')}
+                    title="Démo Parent"
+                    className="flex items-center justify-center py-2.5 rounded-xl border border-slate-200 text-teal-600 hover:bg-teal-50 transition-colors"
+                  >
+                    <Users className="w-4 h-4" />
+                  </button>
+                  <button
+                    type="button"
+                    onClick={() => handleOpenLoginWithRole('eleve')}
+                    title="Démo Élève"
+                    className="flex items-center justify-center py-2.5 rounded-xl border border-slate-200 text-sky-600 hover:bg-sky-50 transition-colors"
+                  >
+                    <BookOpen className="w-4 h-4" />
                   </button>
                 </div>
-              </div>
+              </form>
             </div>
           </div>
         </div>
@@ -410,6 +489,66 @@ export const ShowcaseView: React.FC = () => {
                 <p className="text-3xl sm:text-4xl font-black text-amber-600 dark:text-amber-400">100%</p>
                 <p className="text-xs font-bold text-slate-600 dark:text-slate-300 mt-1">Suivi Numérique</p>
                 <p className="text-[10px] text-slate-400 mt-0.5">Notes, assiduité, cartes et reçus</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* 4ter. Trust strip */}
+      <section className="pt-12 pb-4 sm:pt-16 bg-white dark:bg-slate-900">
+        <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+          <p className="text-xs sm:text-sm font-bold text-slate-400 dark:text-slate-500">
+            Reconnu par les institutions et familles de Duékoué
+          </p>
+          <div className="mt-6 flex flex-wrap items-center justify-center gap-x-10 gap-y-4 grayscale opacity-60 dark:opacity-40">
+            <span className="text-sm font-black text-slate-500 tracking-tight">Ministère de l'Éducation</span>
+            <span className="text-sm font-black text-slate-500 tracking-tight">DRENA Duékoué</span>
+            <span className="text-sm font-black text-slate-500 tracking-tight">COGES Bagohouo</span>
+            <span className="text-sm font-black text-slate-500 tracking-tight">Sous-Préfecture</span>
+            <span className="text-sm font-black text-slate-500 tracking-tight">APE Bagohouo</span>
+          </div>
+        </div>
+      </section>
+
+      {/* 4quater. AI Assistant showcase — centered, chat mockup (à la "Zia Agents") */}
+      <section className="pt-16 pb-16 sm:pb-20 bg-white dark:bg-slate-900">
+        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+          <div className="inline-flex items-center justify-center w-12 h-12 rounded-2xl bg-gradient-to-br from-blue-600 to-indigo-600 text-white shadow-lg shadow-blue-500/20 mb-4">
+            <Bot className="w-6 h-6" />
+          </div>
+          <h3 className="text-2xl sm:text-4xl font-black text-slate-900 dark:text-white tracking-tight">
+            Boostez le suivi pédagogique<br className="hidden sm:block" /> avec l'Assistant IA
+          </h3>
+          <p className="mt-4 text-sm text-slate-600 dark:text-slate-400 max-w-xl mx-auto">
+            Intégré à chaque espace, l'assistant rédige les appréciations de bulletin, analyse
+            le niveau d'une classe et prépare les courriers aux parents — en quelques secondes.
+          </p>
+
+          <div className="mt-10 flex flex-wrap items-center justify-center gap-2.5">
+            <span className="px-3.5 py-2 rounded-full bg-slate-100 dark:bg-slate-800 text-xs font-bold text-slate-700 dark:text-slate-300">Générer une appréciation</span>
+            <span className="px-3.5 py-2 rounded-full bg-slate-100 dark:bg-slate-800 text-xs font-bold text-slate-700 dark:text-slate-300">Analyser une classe</span>
+            <span className="px-3.5 py-2 rounded-full bg-blue-600 text-xs font-bold text-white">Rédiger un courrier</span>
+          </div>
+
+          {/* Chat mockup card */}
+          <div className="mt-10 text-left max-w-xl mx-auto rounded-3xl border border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-950 shadow-2xl shadow-slate-900/10 overflow-hidden">
+            <div className="flex items-center gap-2 px-5 py-3.5 border-b border-slate-100 dark:border-slate-800 bg-slate-50 dark:bg-slate-900">
+              <Bot className="w-4 h-4 text-blue-600" />
+              <span className="text-xs font-bold text-slate-700 dark:text-slate-200">Assistant IA ScolarCI</span>
+              <span className="ml-auto text-[10px] px-2 py-0.5 rounded-full bg-emerald-50 text-emerald-700 font-bold">En ligne</span>
+            </div>
+            <div className="p-5 space-y-3">
+              <div className="ml-auto max-w-[85%] rounded-2xl rounded-tr-sm bg-blue-600 text-white text-xs px-4 py-2.5">
+                Rédige une appréciation pour Koffi Aya Marie, moyenne 16.2/20, Tle D.
+              </div>
+              <div className="mr-auto max-w-[90%] rounded-2xl rounded-tl-sm bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-200 text-xs px-4 py-2.5 leading-relaxed">
+                « Excellent trimestre. Travail remarquable et rigoureux, constance dans
+                l'effort. Félicitations du conseil de classe ! »
+              </div>
+              <div className="flex items-center gap-1.5 text-[10px] text-slate-400 pl-1">
+                <span className="w-1.5 h-1.5 rounded-full bg-slate-300 animate-pulse" />
+                <span>Généré en 2 secondes</span>
               </div>
             </div>
           </div>
@@ -544,6 +683,83 @@ export const ShowcaseView: React.FC = () => {
                   </div>
                 </div>
               </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* 4quinquies. Split dark panel — élève suivi en un coup d'œil */}
+      <section className="pb-16 sm:pb-20 bg-white dark:bg-slate-900">
+        <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="rounded-3xl overflow-hidden shadow-2xl shadow-slate-900/10 grid grid-cols-1 sm:grid-cols-2">
+            <div className="bg-[#142B49] text-white p-8 sm:p-10 flex flex-col justify-center space-y-4">
+              <h4 className="text-xl sm:text-2xl font-black tracking-tight">
+                Suivez chaque élève en un coup d'œil
+              </h4>
+              <p className="text-sm text-slate-300 leading-relaxed">
+                Notes, rang de classe, assiduité et solde de scolarité : tout l'essentiel
+                d'un élève tient sur une seule fiche, consultable par la direction et les parents.
+              </p>
+              <a
+                href="#portails"
+                className="inline-flex items-center gap-2 text-sm font-extrabold text-amber-300 hover:text-amber-200 transition-colors w-fit"
+              >
+                <span>Découvrir le suivi des élèves</span>
+                <ArrowRight className="w-4 h-4" />
+              </a>
+            </div>
+            <div className="bg-slate-50 dark:bg-slate-950 p-6 sm:p-8 flex items-center justify-center">
+              <div className="w-full max-w-xs rounded-2xl bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 shadow-xl p-5 space-y-4">
+                <div className="flex items-center gap-3">
+                  <div className="w-11 h-11 rounded-full bg-blue-100 dark:bg-blue-900/40 text-blue-600 dark:text-blue-400 flex items-center justify-center font-black text-sm">
+                    KA
+                  </div>
+                  <div>
+                    <p className="text-sm font-bold text-slate-900 dark:text-white">Koffi Aya Marie</p>
+                    <p className="text-[11px] text-slate-400">Terminale D · Matricule CMB-2401</p>
+                  </div>
+                </div>
+                <div className="grid grid-cols-2 gap-3">
+                  <div className="rounded-xl bg-emerald-50 dark:bg-emerald-900/20 p-3">
+                    <p className="text-lg font-black text-emerald-600 dark:text-emerald-400">16.2/20</p>
+                    <p className="text-[9px] font-bold text-slate-500">Moyenne Générale</p>
+                  </div>
+                  <div className="rounded-xl bg-blue-50 dark:bg-blue-900/20 p-3">
+                    <p className="text-lg font-black text-blue-600 dark:text-blue-400">2ème</p>
+                    <p className="text-[9px] font-bold text-slate-500">Rang de Classe</p>
+                  </div>
+                </div>
+                <div className="flex items-center justify-between text-xs pt-2 border-t border-slate-100 dark:border-slate-800">
+                  <span className="text-slate-500">Solde scolarité</span>
+                  <span className="font-black text-emerald-600 dark:text-emerald-400">À jour</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* 4sexies. Stat circle badges */}
+      <section className="pb-16 sm:pb-24 bg-white dark:bg-slate-900">
+        <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+          <h3 className="text-2xl sm:text-3xl font-black text-slate-900 dark:text-white tracking-tight mb-10">
+            Développez-vous avec ScolarCI
+          </h3>
+          <div className="flex flex-wrap items-center justify-center gap-6 sm:gap-10">
+            <div className="w-40 h-40 sm:w-48 sm:h-48 rounded-full bg-gradient-to-br from-blue-100 to-indigo-200 dark:from-blue-900/40 dark:to-indigo-900/40 flex flex-col items-center justify-center text-center p-4">
+              <TrendingUp className="w-5 h-5 text-blue-600 dark:text-blue-400 mb-1" />
+              <p className="text-3xl font-black text-blue-700 dark:text-blue-300">96.4%</p>
+              <p className="text-[11px] font-bold text-slate-600 dark:text-slate-300 mt-1">de réussite au BEPC 2024</p>
+            </div>
+            <div className="w-40 h-40 sm:w-48 sm:h-48 rounded-full bg-gradient-to-br from-emerald-100 to-teal-200 dark:from-emerald-900/40 dark:to-teal-900/40 flex flex-col items-center justify-center text-center p-4">
+              <Zap className="w-5 h-5 text-emerald-600 dark:text-emerald-400 mb-1" />
+              <p className="text-3xl font-black text-emerald-700 dark:text-emerald-300">100%</p>
+              <p className="text-[11px] font-bold text-slate-600 dark:text-slate-300 mt-1">des bulletins numérisés</p>
+            </div>
+            <div className="w-40 h-40 sm:w-48 sm:h-48 rounded-full bg-gradient-to-br from-amber-100 to-orange-200 dark:from-amber-900/40 dark:to-orange-900/40 flex flex-col items-center justify-center text-center p-4">
+              <Clock className="w-5 h-5 text-amber-600 dark:text-amber-400 mb-1" />
+              <p className="text-3xl font-black text-amber-700 dark:text-amber-300">2s</p>
+              <p className="text-[11px] font-bold text-slate-600 dark:text-slate-300 mt-1">pour générer une appréciation IA</p>
             </div>
           </div>
         </div>
@@ -1218,39 +1434,86 @@ export const ShowcaseView: React.FC = () => {
         </div>
       </section>
 
-      {/* 10bis. CTA Banner */}
-      <section className="relative overflow-hidden bg-gradient-to-br from-[#142B49] via-[#1a385f] to-blue-900 py-16 sm:py-20">
-        <div
-          className="absolute inset-0 opacity-10 bg-[radial-gradient(#ffffff_1px,transparent_1px)] [background-size:24px_24px] pointer-events-none"
-          aria-hidden="true"
-        />
-        <div className="relative max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center space-y-6">
-          <div className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-white/10 border border-white/20 text-xs font-semibold text-blue-200">
-            <Sparkles className="w-3.5 h-3.5 text-amber-300" />
-            <span>Rentrée {currentEstablishment.currentYear}</span>
+      {/* 10bis. CTA Banner — big rounded gradient card, à la Zoho "Faites-nous confiance !" */}
+      <section className="py-16 sm:py-20 bg-white dark:bg-slate-900">
+        <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="relative overflow-hidden rounded-[2.5rem] bg-gradient-to-br from-blue-100 via-indigo-100 to-amber-100 dark:from-blue-900/30 dark:via-indigo-900/30 dark:to-amber-900/20 px-6 sm:px-14 py-14 sm:py-20 text-center">
+            <div
+              className="absolute inset-0 opacity-[0.07] bg-[radial-gradient(#142B49_1px,transparent_1px)] [background-size:24px_24px] pointer-events-none"
+              aria-hidden="true"
+            />
+            <div className="relative space-y-6">
+              <div className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-white/80 border border-blue-200 text-xs font-semibold text-blue-700">
+                <Sparkles className="w-3.5 h-3.5 text-amber-500" />
+                <span>Rentrée {currentEstablishment.currentYear}</span>
+              </div>
+              <h3 className="text-2xl sm:text-4xl font-black text-blue-900 dark:text-white tracking-tight leading-tight">
+                Faites-nous confiance !
+              </h3>
+              <p className="text-sm sm:text-base text-slate-700 dark:text-slate-300 max-w-xl mx-auto">
+                Déposez une demande de pré-inscription en ligne ou accédez directement à votre
+                espace si vous faites déjà partie du {currentEstablishment.name}.
+              </p>
+              <div className="flex flex-wrap items-center justify-center gap-3 pt-2">
+                <button
+                  onClick={() => setShowPreRegisterModal(true)}
+                  className="px-6 py-3.5 rounded-xl bg-blue-600 hover:bg-blue-500 text-white font-extrabold text-sm shadow-xl shadow-blue-500/20 transition-all flex items-center gap-2 cursor-pointer"
+                >
+                  <UserPlus className="w-4 h-4" />
+                  <span>Demande de Pré-inscription</span>
+                </button>
+                <a
+                  href="#portails"
+                  className="px-6 py-3.5 rounded-xl bg-white hover:bg-slate-50 text-slate-700 font-bold text-sm border border-slate-300 shadow-sm transition-all flex items-center gap-2 cursor-pointer"
+                >
+                  <Lock className="w-4 h-4 text-blue-600" />
+                  <span>Accéder aux Portails Scolaires</span>
+                </a>
+              </div>
+            </div>
           </div>
-          <h3 className="text-2xl sm:text-4xl font-black text-white tracking-tight leading-tight">
-            Prêt à rejoindre le {currentEstablishment.name} ?
-          </h3>
-          <p className="text-sm sm:text-base text-slate-300 max-w-xl mx-auto">
-            Déposez une demande de pré-inscription en ligne ou accédez directement à votre
-            espace si vous faites déjà partie de l'établissement.
-          </p>
-          <div className="flex flex-wrap items-center justify-center gap-3 pt-2">
-            <button
-              onClick={() => setShowPreRegisterModal(true)}
-              className="px-6 py-3.5 rounded-xl bg-amber-400 hover:bg-amber-300 text-[#142B49] font-extrabold text-sm shadow-xl shadow-amber-500/20 transition-all flex items-center gap-2 cursor-pointer"
-            >
-              <UserPlus className="w-4 h-4" />
-              <span>Demande de Pré-inscription</span>
-            </button>
-            <a
-              href="#portails"
-              className="px-6 py-3.5 rounded-xl bg-white/10 hover:bg-white/20 text-white font-bold text-sm border border-white/20 transition-all flex items-center gap-2 cursor-pointer"
-            >
-              <Lock className="w-4 h-4 text-amber-300" />
-              <span>Accéder aux Portails Scolaires</span>
-            </a>
+        </div>
+      </section>
+
+      {/* 10ter. FAQ */}
+      <section className="pb-16 sm:pb-24 bg-white dark:bg-slate-900">
+        <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-10">
+            <h3 className="text-2xl sm:text-3xl font-black text-slate-900 dark:text-white tracking-tight">
+              Questions fréquentes
+            </h3>
+            <p className="text-sm text-slate-500 dark:text-slate-400 mt-2">
+              Vous ne trouvez pas de réponse ? Contactez le secrétariat ci-dessous.
+            </p>
+          </div>
+
+          <div className="space-y-3">
+            {faqItems.map((item, i) => {
+              const isOpen = openFaqIndex === i;
+              return (
+                <div
+                  key={item.q}
+                  className="rounded-2xl border border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-950 overflow-hidden"
+                >
+                  <button
+                    onClick={() => setOpenFaqIndex(isOpen ? null : i)}
+                    className="w-full flex items-center justify-between gap-4 px-5 py-4 text-left cursor-pointer"
+                  >
+                    <span className="text-sm font-bold text-slate-800 dark:text-slate-100">{item.q}</span>
+                    {isOpen ? (
+                      <Minus className="w-4 h-4 text-blue-600 shrink-0" />
+                    ) : (
+                      <Plus className="w-4 h-4 text-slate-400 shrink-0" />
+                    )}
+                  </button>
+                  {isOpen && (
+                    <div className="px-5 pb-4 text-sm text-slate-600 dark:text-slate-400 leading-relaxed">
+                      {item.a}
+                    </div>
+                  )}
+                </div>
+              );
+            })}
           </div>
         </div>
       </section>
