@@ -507,6 +507,80 @@ export const ShowcaseView: React.FC = () => {
         </div>
       </section>
 
+      {/* 6. Section Présentation & Mot du Directeur */}
+      <section id="presentation" className="py-16 sm:py-20 bg-white dark:bg-slate-900 border-b border-slate-200 dark:border-slate-800">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+            {/* Photo du Directeur */}
+            <div className="lg:col-span-5 text-center">
+              <div className="relative inline-block">
+                <img
+                  src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=500&h=600&q=80"
+                  alt="M. Kouadio Laurent, Directeur du Collège Moderne Bagohouo"
+                  className="w-72 h-88 sm:w-80 sm:h-96 object-cover rounded-3xl shadow-2xl ring-8 ring-blue-500/10 mx-auto"
+                />
+                <div className="absolute -bottom-4 left-1/2 -translate-x-1/2 bg-[#142B49] text-white py-2 px-5 rounded-2xl shadow-xl text-center whitespace-nowrap border border-blue-400/30">
+                  <p className="text-xs font-black">M. Kouadio Laurent</p>
+                  <p className="text-[10px] text-amber-300">Directeur du Collège Moderne Bagohouo</p>
+                </div>
+              </div>
+            </div>
+
+            {/* Texte et Valeurs Républicaines */}
+            <div className="lg:col-span-7 space-y-6">
+              <div className="inline-flex items-center gap-2 text-xs font-bold text-blue-600 dark:text-blue-400 uppercase tracking-wider">
+                <HeartHandshake className="w-4 h-4" />
+                <span>Le Mot du Chef d'Établissement</span>
+              </div>
+
+              <h3 className="text-2xl sm:text-3xl font-black text-slate-900 dark:text-white leading-tight">
+                « L'éducation de qualité est le plus beau cadeau que nous puissions offrir aux enfants de Bagohouo. »
+              </h3>
+
+              <div className="text-xs sm:text-sm text-slate-600 dark:text-slate-300 space-y-4 leading-relaxed">
+                <p>
+                  Chers parents, chers élèves, chers collègues enseignants,
+                </p>
+                <p>
+                  Au <strong>{currentEstablishment.name}</strong>, notre engagement quotidien repose sur
+                  trois piliers fondamentaux : la <em>discipline</em>, le <em>travail acharné</em> et la <em>recherche de l'excellence</em>.
+                  Implanté au cœur de la belle région du Guémon, notre collège a pour vocation d'offrir
+                  à chaque jeune fille et chaque jeune garçon un environnement d’apprentissage moderne,
+                  sécurisé et propice à son épanouissement intellectuel et civique.
+                </p>
+                <p>
+                  Grâce à cette plateforme numérique de gestion, nous franchissons un nouveau cap vers
+                  la transparence totale et la proximité avec les familles. Vous pouvez désormais suivre
+                  les résultats scolaires, les présences et la vie quotidienne de vos enfants en toute sérénité.
+                </p>
+              </div>
+
+              {/* Three Value Blocks */}
+              <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 pt-2">
+                <div className="p-3.5 rounded-2xl bg-slate-50 dark:bg-slate-800 border border-slate-200 dark:border-slate-700">
+                  <p className="text-xs font-extrabold text-blue-600 dark:text-blue-400">DISCIPLINE</p>
+                  <p className="text-[11px] text-slate-500 dark:text-slate-400 mt-1">
+                    Respect des règles de la République et ponctualité exemplaire.
+                  </p>
+                </div>
+                <div className="p-3.5 rounded-2xl bg-slate-50 dark:bg-slate-800 border border-slate-200 dark:border-slate-700">
+                  <p className="text-xs font-extrabold text-blue-600 dark:text-blue-400">TRAVAIL</p>
+                  <p className="text-[11px] text-slate-500 dark:text-slate-400 mt-1">
+                    Rigueur pédagogique, devoirs réguliers et encadrement attentif.
+                  </p>
+                </div>
+                <div className="p-3.5 rounded-2xl bg-slate-50 dark:bg-slate-800 border border-slate-200 dark:border-slate-700">
+                  <p className="text-xs font-extrabold text-blue-600 dark:text-blue-400">SUCCÈS</p>
+                  <p className="text-[11px] text-slate-500 dark:text-slate-400 mt-1">
+                    Obtention du BEPC et orientation réussie vers le second cycle.
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
       {/* 5. PORTAILS D'ACCÈS NUMÉRIQUE (Main Requirement) */}
       <section id="portails" className="py-16 sm:py-20 bg-slate-100/70 dark:bg-slate-950/60">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -746,80 +820,6 @@ export const ShowcaseView: React.FC = () => {
                 <span>Connexion Vie Scolaire</span>
                 <ArrowRight className="w-3.5 h-3.5" />
               </button>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* 6. Section Présentation & Mot du Directeur */}
-      <section id="presentation" className="py-16 sm:py-20 bg-white dark:bg-slate-900 border-b border-slate-200 dark:border-slate-800">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
-            {/* Photo du Directeur */}
-            <div className="lg:col-span-5 text-center">
-              <div className="relative inline-block">
-                <img
-                  src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=500&h=600&q=80"
-                  alt="M. Kouadio Laurent, Directeur du Collège Moderne Bagohouo"
-                  className="w-72 h-88 sm:w-80 sm:h-96 object-cover rounded-3xl shadow-2xl ring-8 ring-blue-500/10 mx-auto"
-                />
-                <div className="absolute -bottom-4 left-1/2 -translate-x-1/2 bg-[#142B49] text-white py-2 px-5 rounded-2xl shadow-xl text-center whitespace-nowrap border border-blue-400/30">
-                  <p className="text-xs font-black">M. Kouadio Laurent</p>
-                  <p className="text-[10px] text-amber-300">Directeur du Collège Moderne Bagohouo</p>
-                </div>
-              </div>
-            </div>
-
-            {/* Texte et Valeurs Républicaines */}
-            <div className="lg:col-span-7 space-y-6">
-              <div className="inline-flex items-center gap-2 text-xs font-bold text-blue-600 dark:text-blue-400 uppercase tracking-wider">
-                <HeartHandshake className="w-4 h-4" />
-                <span>Le Mot du Chef d'Établissement</span>
-              </div>
-
-              <h3 className="text-2xl sm:text-3xl font-black text-slate-900 dark:text-white leading-tight">
-                « L'éducation de qualité est le plus beau cadeau que nous puissions offrir aux enfants de Bagohouo. »
-              </h3>
-
-              <div className="text-xs sm:text-sm text-slate-600 dark:text-slate-300 space-y-4 leading-relaxed">
-                <p>
-                  Chers parents, chers élèves, chers collègues enseignants,
-                </p>
-                <p>
-                  Au <strong>{currentEstablishment.name}</strong>, notre engagement quotidien repose sur
-                  trois piliers fondamentaux : la <em>discipline</em>, le <em>travail acharné</em> et la <em>recherche de l'excellence</em>.
-                  Implanté au cœur de la belle région du Guémon, notre collège a pour vocation d'offrir
-                  à chaque jeune fille et chaque jeune garçon un environnement d’apprentissage moderne,
-                  sécurisé et propice à son épanouissement intellectuel et civique.
-                </p>
-                <p>
-                  Grâce à cette plateforme numérique de gestion, nous franchissons un nouveau cap vers
-                  la transparence totale et la proximité avec les familles. Vous pouvez désormais suivre
-                  les résultats scolaires, les présences et la vie quotidienne de vos enfants en toute sérénité.
-                </p>
-              </div>
-
-              {/* Three Value Blocks */}
-              <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 pt-2">
-                <div className="p-3.5 rounded-2xl bg-slate-50 dark:bg-slate-800 border border-slate-200 dark:border-slate-700">
-                  <p className="text-xs font-extrabold text-blue-600 dark:text-blue-400">DISCIPLINE</p>
-                  <p className="text-[11px] text-slate-500 dark:text-slate-400 mt-1">
-                    Respect des règles de la République et ponctualité exemplaire.
-                  </p>
-                </div>
-                <div className="p-3.5 rounded-2xl bg-slate-50 dark:bg-slate-800 border border-slate-200 dark:border-slate-700">
-                  <p className="text-xs font-extrabold text-blue-600 dark:text-blue-400">TRAVAIL</p>
-                  <p className="text-[11px] text-slate-500 dark:text-slate-400 mt-1">
-                    Rigueur pédagogique, devoirs réguliers et encadrement attentif.
-                  </p>
-                </div>
-                <div className="p-3.5 rounded-2xl bg-slate-50 dark:bg-slate-800 border border-slate-200 dark:border-slate-700">
-                  <p className="text-xs font-extrabold text-blue-600 dark:text-blue-400">SUCCÈS</p>
-                  <p className="text-[11px] text-slate-500 dark:text-slate-400 mt-1">
-                    Obtention du BEPC et orientation réussie vers le second cycle.
-                  </p>
-                </div>
-              </div>
             </div>
           </div>
         </div>
