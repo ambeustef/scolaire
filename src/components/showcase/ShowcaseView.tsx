@@ -515,13 +515,12 @@ export const ShowcaseView: React.FC = () => {
             <div className="lg:col-span-5 text-center">
               <div className="relative inline-block">
                 <img
-                  src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=500&h=600&q=80"
-                  alt="M. Kouadio Laurent, Directeur du Collège Moderne Bagohouo"
+                  src="/images/campus/sous-prefet.webp"
+                  alt="Le Sous-Préfet de Duékoué prenant la parole lors d'une cérémonie au collège"
                   className="w-72 h-88 sm:w-80 sm:h-96 object-cover rounded-3xl shadow-2xl ring-8 ring-blue-500/10 mx-auto"
                 />
                 <div className="absolute -bottom-4 left-1/2 -translate-x-1/2 bg-[#142B49] text-white py-2 px-5 rounded-2xl shadow-xl text-center whitespace-nowrap border border-blue-400/30">
-                  <p className="text-xs font-black">M. Kouadio Laurent</p>
-                  <p className="text-[10px] text-amber-300">Directeur du Collège Moderne Bagohouo</p>
+                  <p className="text-xs font-black">Le Sous-Préfet de Duékoué</p>
                 </div>
               </div>
             </div>
