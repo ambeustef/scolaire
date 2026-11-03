@@ -1,0 +1,6 @@
+{
+  "name": "ScolarCI - Gestion Scolaire Complète",
+  "description": "Plateforme SaaS complète de gestion scolaire pour écoles primaires, collèges et lycées en Côte d'Ivoire. Gestion des élèves, notes, bulletins officiels, comptabilité en FCFA, emplois du temps et assistant IA.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
