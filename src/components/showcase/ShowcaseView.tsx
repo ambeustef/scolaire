@@ -234,10 +234,10 @@ export const ShowcaseView: React.FC = () => {
       </header>
 
       {/* 3. Hero Section */}
-      <section className="relative overflow-hidden bg-gradient-to-b from-[#142B49] via-[#1a385f] to-[#142B49] text-white py-16 sm:py-24">
+      <section className="relative overflow-hidden bg-gradient-to-b from-blue-50 via-white to-white py-16 sm:py-24">
         {/* Decorative Grid Background */}
         <div
-          className="absolute inset-0 opacity-10 bg-[radial-gradient(#ffffff_1px,transparent_1px)] [background-size:24px_24px] pointer-events-none"
+          className="absolute inset-0 opacity-[0.07] bg-[radial-gradient(#142B49_1px,transparent_1px)] [background-size:24px_24px] pointer-events-none"
           aria-hidden="true"
         />
 
@@ -248,9 +248,9 @@ export const ShowcaseView: React.FC = () => {
           preserveAspectRatio="none"
           aria-hidden="true"
         >
-          <path d="M0,160 C180,100 320,190 520,130 C720,70 860,180 1060,120 C1240,65 1340,140 1440,110 L1440,220 L0,220 Z" fill="#16A34A" opacity="0.14" />
-          <path d="M0,190 C220,140 380,210 600,160 C800,115 980,205 1200,150 C1320,120 1380,160 1440,150 L1440,220 L0,220 Z" fill="#15803D" opacity="0.22" />
-          <path d="M0,210 C260,180 460,220 700,195 C920,172 1140,218 1440,190 L1440,220 L0,220 Z" fill="#064E3B" opacity="0.35" />
+          <path d="M0,160 C180,100 320,190 520,130 C720,70 860,180 1060,120 C1240,65 1340,140 1440,110 L1440,220 L0,220 Z" fill="#16A34A" opacity="0.12" />
+          <path d="M0,190 C220,140 380,210 600,160 C800,115 980,205 1200,150 C1320,120 1380,160 1440,150 L1440,220 L0,220 Z" fill="#15803D" opacity="0.18" />
+          <path d="M0,210 C260,180 460,220 700,195 C920,172 1140,218 1440,190 L1440,220 L0,220 Z" fill="#064E3B" opacity="0.28" />
         </svg>
 
         <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -258,25 +258,25 @@ export const ShowcaseView: React.FC = () => {
             {/* Left Column: Heading & CTAs */}
             <div className="lg:col-span-7 space-y-6 text-center lg:text-left">
               <div className="flex flex-wrap items-center justify-center lg:justify-start gap-2">
-                <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-white/10 border border-white/20 text-xs font-semibold text-blue-200">
-                  <span className="w-2 h-2 rounded-full bg-emerald-400 animate-pulse"></span>
+                <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-blue-50 border border-blue-200 text-xs font-semibold text-blue-700">
+                  <span className="w-2 h-2 rounded-full bg-emerald-500 animate-pulse"></span>
                   <span>Portail Numérique Officiel · Année Scolaire {currentEstablishment.currentYear}</span>
                 </div>
-                <div className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-emerald-500/10 border border-emerald-400/20 text-xs font-semibold text-emerald-300">
+                <div className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-emerald-50 border border-emerald-200 text-xs font-semibold text-emerald-700">
                   <TreePine className="w-3.5 h-3.5" />
                   <span>Terre du Guémon</span>
                 </div>
               </div>
 
-              <h2 className="text-3xl sm:text-5xl lg:text-5xl font-black text-white tracking-tight leading-tight">
+              <h2 className="text-3xl sm:text-5xl lg:text-5xl font-black text-slate-900 tracking-tight leading-tight">
                 Former les leaders de demain au cœur du{' '}
-                <span className="text-amber-400 underline decoration-amber-400/40 decoration-4">
+                <span className="text-amber-600 underline decoration-amber-400/60 decoration-4">
                   Guémon
                 </span>
               </h2>
 
-              <p className="text-sm sm:text-base text-slate-200 max-w-2xl mx-auto lg:mx-0 leading-relaxed font-normal">
-                Bienvenue sur la plateforme officielle du <strong>{currentEstablishment.name}</strong>.
+              <p className="text-sm sm:text-base text-slate-600 max-w-2xl mx-auto lg:mx-0 leading-relaxed font-normal">
+                Bienvenue sur la plateforme officielle du <strong className="text-slate-900">{currentEstablishment.name}</strong>.
                 Un établissement d’excellence engagé dans la réussite éducative, la rigueur républicaine
                 et le suivi pédagogique en direct pour les élèves et les familles de Bagohouo.
               </p>
@@ -285,7 +285,7 @@ export const ShowcaseView: React.FC = () => {
               <div className="flex flex-wrap items-center justify-center lg:justify-start gap-3 pt-2">
                 <a
                   href="#portails"
-                  className="px-6 py-3.5 rounded-xl bg-blue-600 hover:bg-blue-500 text-white font-extrabold text-sm shadow-xl shadow-blue-500/30 transition-all flex items-center gap-2 group cursor-pointer"
+                  className="px-6 py-3.5 rounded-xl bg-blue-600 hover:bg-blue-500 text-white font-extrabold text-sm shadow-xl shadow-blue-500/20 transition-all flex items-center gap-2 group cursor-pointer"
                 >
                   <Lock className="w-4 h-4 text-amber-300" />
                   <span>Accéder aux Portails Scolaires</span>
@@ -294,25 +294,25 @@ export const ShowcaseView: React.FC = () => {
 
                 <button
                   onClick={() => setShowPreRegisterModal(true)}
-                  className="px-6 py-3.5 rounded-xl bg-white/10 hover:bg-white/20 text-white font-bold text-sm border border-white/20 transition-all flex items-center gap-2 cursor-pointer"
+                  className="px-6 py-3.5 rounded-xl bg-white hover:bg-slate-50 text-slate-700 font-bold text-sm border border-slate-300 shadow-sm transition-all flex items-center gap-2 cursor-pointer"
                 >
-                  <UserPlus className="w-4 h-4 text-blue-300" />
+                  <UserPlus className="w-4 h-4 text-blue-600" />
                   <span>Demande de Pré-inscription</span>
                 </button>
               </div>
 
               {/* Reassurance bullet list */}
-              <div className="pt-4 flex flex-wrap items-center justify-center lg:justify-start gap-5 text-xs text-slate-300">
+              <div className="pt-4 flex flex-wrap items-center justify-center lg:justify-start gap-5 text-xs text-slate-500">
                 <div className="flex items-center gap-1.5">
-                  <CheckCircle2 className="w-4 h-4 text-emerald-400" />
+                  <CheckCircle2 className="w-4 h-4 text-emerald-600" />
                   <span>Bulletins Officiels Numérisés</span>
                 </div>
                 <div className="flex items-center gap-1.5">
-                  <CheckCircle2 className="w-4 h-4 text-emerald-400" />
+                  <CheckCircle2 className="w-4 h-4 text-emerald-600" />
                   <span>Suivi d’assiduité en temps réel</span>
                 </div>
                 <div className="flex items-center gap-1.5">
-                  <CheckCircle2 className="w-4 h-4 text-emerald-400" />
+                  <CheckCircle2 className="w-4 h-4 text-emerald-600" />
                   <span>Paiements & Reçus sécurisés</span>
                 </div>
               </div>
@@ -320,61 +320,61 @@ export const ShowcaseView: React.FC = () => {
 
             {/* Right Column: Visual Showcase Card */}
             <div className="lg:col-span-5">
-              <div className="relative rounded-3xl bg-white/10 backdrop-blur-md p-6 sm:p-8 border border-white/20 shadow-2xl">
-                <div className="flex items-center justify-between pb-4 border-b border-white/15">
+              <div className="relative rounded-3xl bg-white p-6 sm:p-8 border border-slate-200 shadow-xl shadow-slate-900/5">
+                <div className="flex items-center justify-between pb-4 border-b border-slate-100">
                   <div className="flex items-center gap-3">
                     <img
                       src={currentEstablishment.logoUrl}
                       alt="Logo CMB"
-                      className="w-12 h-12 rounded-xl object-cover ring-2 ring-white/30"
+                      className="w-12 h-12 rounded-xl object-cover ring-2 ring-slate-100"
                     />
                     <div>
-                      <p className="text-xs uppercase font-extrabold text-amber-300">Collège Moderne</p>
-                      <p className="text-sm font-bold text-white">Bagohouo, Duékoué</p>
+                      <p className="text-xs uppercase font-extrabold text-amber-600">Collège Moderne</p>
+                      <p className="text-sm font-bold text-slate-900">Bagohouo, Duékoué</p>
                     </div>
                   </div>
-                  <span className="text-[10px] font-bold px-2 py-0.5 rounded-full bg-emerald-500/20 text-emerald-300 border border-emerald-400/30">
+                  <span className="text-[10px] font-bold px-2 py-0.5 rounded-full bg-emerald-50 text-emerald-700 border border-emerald-200">
                     Établissement Agréé
                   </span>
                 </div>
 
                 <div className="mt-5 space-y-4">
-                  <div className="p-3.5 rounded-2xl bg-white/5 border border-white/10 flex items-center gap-3">
-                    <div className="w-10 h-10 rounded-xl bg-blue-500/20 text-blue-300 flex items-center justify-center font-bold">
+                  <div className="p-3.5 rounded-2xl bg-slate-50 border border-slate-100 flex items-center gap-3">
+                    <div className="w-10 h-10 rounded-xl bg-blue-50 text-blue-600 flex items-center justify-center font-bold">
                       <GraduationCap className="w-5 h-5" />
                     </div>
                     <div className="flex-1 min-w-0">
-                      <p className="text-xs font-bold text-white">Directeur de l'Établissement</p>
-                      <p className="text-[11px] text-slate-300">{currentEstablishment.directorName}</p>
+                      <p className="text-xs font-bold text-slate-900">Directeur de l'Établissement</p>
+                      <p className="text-[11px] text-slate-500">{currentEstablishment.directorName}</p>
                     </div>
                   </div>
 
-                  <div className="p-3.5 rounded-2xl bg-white/5 border border-white/10 flex items-center gap-3">
-                    <div className="w-10 h-10 rounded-xl bg-amber-500/20 text-amber-300 flex items-center justify-center font-bold">
+                  <div className="p-3.5 rounded-2xl bg-slate-50 border border-slate-100 flex items-center gap-3">
+                    <div className="w-10 h-10 rounded-xl bg-amber-50 text-amber-600 flex items-center justify-center font-bold">
                       <Award className="w-5 h-5" />
                     </div>
                     <div className="flex-1 min-w-0">
-                      <p className="text-xs font-bold text-white">Taux de Réussite BEPC 2024</p>
-                      <p className="text-[11px] text-slate-300">96.4% d’admis parmi les candidats présentés</p>
+                      <p className="text-xs font-bold text-slate-900">Taux de Réussite BEPC 2024</p>
+                      <p className="text-[11px] text-slate-500">96.4% d’admis parmi les candidats présentés</p>
                     </div>
                   </div>
 
-                  <div className="p-3.5 rounded-2xl bg-white/5 border border-white/10 flex items-center gap-3">
-                    <div className="w-10 h-10 rounded-xl bg-emerald-500/20 text-emerald-300 flex items-center justify-center font-bold">
+                  <div className="p-3.5 rounded-2xl bg-slate-50 border border-slate-100 flex items-center gap-3">
+                    <div className="w-10 h-10 rounded-xl bg-emerald-50 text-emerald-600 flex items-center justify-center font-bold">
                       <Clock className="w-5 h-5" />
                     </div>
                     <div className="flex-1 min-w-0">
-                      <p className="text-xs font-bold text-white">Horaires des Cours</p>
-                      <p className="text-[11px] text-slate-300">Lundi au Vendredi : 07h30 - 17h30 (Pause 12h-14h)</p>
+                      <p className="text-xs font-bold text-slate-900">Horaires des Cours</p>
+                      <p className="text-[11px] text-slate-500">Lundi au Vendredi : 07h30 - 17h30 (Pause 12h-14h)</p>
                     </div>
                   </div>
                 </div>
 
-                <div className="mt-6 pt-4 border-t border-white/15 flex items-center justify-between text-xs">
-                  <span className="text-slate-300">Envie de rejoindre l'établissement ?</span>
+                <div className="mt-6 pt-4 border-t border-slate-100 flex items-center justify-between text-xs">
+                  <span className="text-slate-500">Envie de rejoindre l'établissement ?</span>
                   <button
                     onClick={() => setShowPreRegisterModal(true)}
-                    className="font-bold text-amber-300 hover:text-white transition-colors flex items-center gap-1"
+                    className="font-bold text-amber-600 hover:text-amber-700 transition-colors flex items-center gap-1"
                   >
                     <span>Postuler</span>
                     <ChevronRight className="w-3.5 h-3.5" />
@@ -386,29 +386,164 @@ export const ShowcaseView: React.FC = () => {
         </div>
       </section>
 
-      {/* 4. Key Stats Counter */}
-      <section className="bg-white dark:bg-slate-900 border-b border-slate-200 dark:border-slate-800 py-8">
+      {/* 4. Key Stats Counter — floating card bridging the hero and the content below */}
+      <section className="relative z-10 -mt-14 sm:-mt-20 px-4 sm:px-6 lg:px-8">
+        <div className="max-w-7xl mx-auto">
+          <div className="bg-white dark:bg-slate-900 rounded-3xl shadow-2xl shadow-slate-900/10 border border-slate-100 dark:border-slate-800 p-5 sm:p-8">
+            <div className="grid grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6 text-center lg:text-left lg:divide-x lg:divide-slate-100 dark:lg:divide-slate-800">
+              <div className="lg:pr-6">
+                <p className="text-3xl sm:text-4xl font-black text-blue-600 dark:text-blue-400">850+</p>
+                <p className="text-xs font-bold text-slate-600 dark:text-slate-300 mt-1">Élèves Inscrits</p>
+                <p className="text-[10px] text-slate-400 mt-0.5">Premier cycle secondaire complet</p>
+              </div>
+              <div className="lg:px-6">
+                <p className="text-3xl sm:text-4xl font-black text-emerald-600 dark:text-emerald-400">96.4%</p>
+                <p className="text-xs font-bold text-slate-600 dark:text-slate-300 mt-1">Réussite au BEPC</p>
+                <p className="text-[10px] text-slate-400 mt-0.5">Parmi les meilleurs taux de la DRENA</p>
+              </div>
+              <div className="lg:px-6">
+                <p className="text-3xl sm:text-4xl font-black text-indigo-600 dark:text-indigo-400">38</p>
+                <p className="text-xs font-bold text-slate-600 dark:text-slate-300 mt-1">Enseignants & Éducateurs</p>
+                <p className="text-[10px] text-slate-400 mt-0.5">Professeurs certifiés de l'ENS</p>
+              </div>
+              <div className="lg:pl-6">
+                <p className="text-3xl sm:text-4xl font-black text-amber-600 dark:text-amber-400">100%</p>
+                <p className="text-xs font-bold text-slate-600 dark:text-slate-300 mt-1">Suivi Numérique</p>
+                <p className="text-[10px] text-slate-400 mt-0.5">Notes, assiduité, cartes et reçus</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* 4bis. Product Showcase — dashboard preview, alternating feature layout */}
+      <section className="pt-20 sm:pt-28 pb-16 sm:pb-20 bg-white dark:bg-slate-900">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid grid-cols-2 lg:grid-cols-4 gap-6 text-center">
-            <div className="p-4 rounded-2xl bg-slate-50 dark:bg-slate-800/50">
-              <p className="text-3xl sm:text-4xl font-black text-blue-600 dark:text-blue-400">850+</p>
-              <p className="text-xs font-bold text-slate-600 dark:text-slate-300 mt-1">Élèves Inscrits</p>
-              <p className="text-[10px] text-slate-400 mt-0.5">Premier cycle secondaire complet</p>
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+            {/* Text */}
+            <div className="lg:col-span-5 space-y-5 text-center lg:text-left">
+              <div className="inline-flex items-center gap-1.5 text-xs font-bold text-blue-600 dark:text-blue-400 uppercase tracking-wider">
+                <Sparkles className="w-3.5 h-3.5" />
+                <span>Un seul tableau de bord pour tout piloter</span>
+              </div>
+              <h3 className="text-2xl sm:text-4xl font-black text-slate-900 dark:text-white tracking-tight leading-tight">
+                Toute la gestion scolaire,<br className="hidden lg:block" /> en temps réel.
+              </h3>
+              <p className="text-sm text-slate-600 dark:text-slate-400 max-w-md mx-auto lg:mx-0">
+                Notes, assiduité, finances et communication sont connectés dans une seule
+                plateforme : chaque saisie se reflète instantanément sur les portails
+                direction, enseignants, parents et élèves.
+              </p>
+              <ul className="space-y-3 text-left max-w-md mx-auto lg:mx-0">
+                <li className="flex items-start gap-3">
+                  <span className="mt-0.5 w-5 h-5 rounded-full bg-emerald-100 dark:bg-emerald-900/40 text-emerald-600 dark:text-emerald-400 flex items-center justify-center shrink-0">
+                    <CheckCircle2 className="w-3.5 h-3.5" />
+                  </span>
+                  <span className="text-sm text-slate-700 dark:text-slate-300">
+                    Bulletins et moyennes calculés automatiquement, prêts à imprimer
+                  </span>
+                </li>
+                <li className="flex items-start gap-3">
+                  <span className="mt-0.5 w-5 h-5 rounded-full bg-emerald-100 dark:bg-emerald-900/40 text-emerald-600 dark:text-emerald-400 flex items-center justify-center shrink-0">
+                    <CheckCircle2 className="w-3.5 h-3.5" />
+                  </span>
+                  <span className="text-sm text-slate-700 dark:text-slate-300">
+                    Paiements et reçus de scolarité suivis en FCFA, en direct
+                  </span>
+                </li>
+                <li className="flex items-start gap-3">
+                  <span className="mt-0.5 w-5 h-5 rounded-full bg-emerald-100 dark:bg-emerald-900/40 text-emerald-600 dark:text-emerald-400 flex items-center justify-center shrink-0">
+                    <CheckCircle2 className="w-3.5 h-3.5" />
+                  </span>
+                  <span className="text-sm text-slate-700 dark:text-slate-300">
+                    Alertes automatiques aux parents en cas d'absence ou de retard
+                  </span>
+                </li>
+              </ul>
+              <a
+                href="#portails"
+                className="inline-flex items-center gap-2 px-5 py-3 rounded-xl bg-blue-600 hover:bg-blue-500 text-white font-extrabold text-sm shadow-lg shadow-blue-500/20 transition-all group"
+              >
+                <span>Explorer les espaces</span>
+                <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
+              </a>
             </div>
-            <div className="p-4 rounded-2xl bg-slate-50 dark:bg-slate-800/50">
-              <p className="text-3xl sm:text-4xl font-black text-emerald-600 dark:text-emerald-400">96.4%</p>
-              <p className="text-xs font-bold text-slate-600 dark:text-slate-300 mt-1">Réussite au BEPC</p>
-              <p className="text-[10px] text-slate-400 mt-0.5">Parmi les meilleurs taux de la DRENA</p>
-            </div>
-            <div className="p-4 rounded-2xl bg-slate-50 dark:bg-slate-800/50">
-              <p className="text-3xl sm:text-4xl font-black text-indigo-600 dark:text-indigo-400">38</p>
-              <p className="text-xs font-bold text-slate-600 dark:text-slate-300 mt-1">Enseignants & Éducateurs</p>
-              <p className="text-[10px] text-slate-400 mt-0.5">Professeurs certifiés de l'ENS</p>
-            </div>
-            <div className="p-4 rounded-2xl bg-slate-50 dark:bg-slate-800/50">
-              <p className="text-3xl sm:text-4xl font-black text-amber-600 dark:text-amber-400">100%</p>
-              <p className="text-xs font-bold text-slate-600 dark:text-slate-300 mt-1">Suivi Numérique</p>
-              <p className="text-[10px] text-slate-400 mt-0.5">Notes, assiduité, cartes et reçus</p>
+
+            {/* Dashboard mockup */}
+            <div className="lg:col-span-7">
+              <div className="relative">
+                <div className="absolute -inset-4 bg-gradient-to-br from-blue-100 via-transparent to-amber-100 dark:from-blue-900/20 dark:to-amber-900/10 rounded-[2.5rem] blur-2xl opacity-70 pointer-events-none" aria-hidden="true" />
+                <div className="relative rounded-2xl border border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-950 shadow-2xl shadow-slate-900/10 overflow-hidden">
+                  {/* Browser chrome */}
+                  <div className="flex items-center gap-1.5 px-4 py-3 border-b border-slate-100 dark:border-slate-800 bg-slate-50 dark:bg-slate-900">
+                    <span className="w-2.5 h-2.5 rounded-full bg-red-400" />
+                    <span className="w-2.5 h-2.5 rounded-full bg-amber-400" />
+                    <span className="w-2.5 h-2.5 rounded-full bg-emerald-400" />
+                    <span className="ml-3 text-[10px] text-slate-400 font-mono">scolarci.app/dashboard</span>
+                  </div>
+                  {/* Body */}
+                  <div className="flex">
+                    {/* Fake sidebar */}
+                    <div className="hidden sm:flex flex-col items-center gap-3 w-14 py-5 border-r border-slate-100 dark:border-slate-800 bg-slate-50/60 dark:bg-slate-900/60">
+                      {[GraduationCap, Users, Award, Clock, FileCheck].map((Icon, i) => (
+                        <div
+                          key={i}
+                          className={`w-8 h-8 rounded-lg flex items-center justify-center ${i === 0 ? 'bg-blue-600 text-white' : 'text-slate-400'}`}
+                        >
+                          <Icon className="w-4 h-4" />
+                        </div>
+                      ))}
+                    </div>
+                    {/* Fake content */}
+                    <div className="flex-1 p-4 sm:p-6 space-y-4">
+                      <div className="flex items-center justify-between">
+                        <div className="h-3 w-28 rounded bg-slate-200 dark:bg-slate-700" />
+                        <div className="h-7 w-20 rounded-lg bg-blue-600" />
+                      </div>
+                      <div className="grid grid-cols-3 gap-3">
+                        <div className="rounded-xl bg-blue-50 dark:bg-blue-900/20 p-3">
+                          <p className="text-lg font-black text-blue-600 dark:text-blue-400">14.8</p>
+                          <p className="text-[9px] font-bold text-slate-500">Moy. Générale</p>
+                        </div>
+                        <div className="rounded-xl bg-emerald-50 dark:bg-emerald-900/20 p-3">
+                          <p className="text-lg font-black text-emerald-600 dark:text-emerald-400">97%</p>
+                          <p className="text-[9px] font-bold text-slate-500">Assiduité</p>
+                        </div>
+                        <div className="rounded-xl bg-amber-50 dark:bg-amber-900/20 p-3">
+                          <p className="text-lg font-black text-amber-600 dark:text-amber-400">+12</p>
+                          <p className="text-[9px] font-bold text-slate-500">Reçus (jour)</p>
+                        </div>
+                      </div>
+                      {/* Fake bar chart */}
+                      <div className="rounded-xl border border-slate-100 dark:border-slate-800 p-4">
+                        <div className="flex items-end gap-2 h-24">
+                          {[55, 80, 45, 70, 90, 60, 75].map((h, i) => (
+                            <div key={i} className="flex-1 rounded-t-md bg-gradient-to-t from-blue-600 to-blue-400" style={{ height: `${h}%` }} />
+                          ))}
+                        </div>
+                        <div className="flex justify-between mt-2 text-[8px] text-slate-400 font-bold">
+                          <span>Fr</span><span>Ma</span><span>Sc</span><span>Hi</span><span>An</span><span>EPS</span><span>SVT</span>
+                        </div>
+                      </div>
+                      <div className="space-y-2">
+                        {[
+                          { name: 'Koffi Aya Marie', cls: 'Tle D', score: '16.2' },
+                          { name: 'Diabaté Souleymane', cls: '3ème A', score: '13.5' },
+                        ].map((row) => (
+                          <div key={row.name} className="flex items-center gap-3 rounded-lg bg-slate-50 dark:bg-slate-800/50 p-2.5">
+                            <div className="w-7 h-7 rounded-full bg-slate-200 dark:bg-slate-700 shrink-0" />
+                            <div className="flex-1 min-w-0">
+                              <p className="text-[11px] font-bold text-slate-700 dark:text-slate-200 truncate">{row.name}</p>
+                              <p className="text-[9px] text-slate-400">{row.cls}</p>
+                            </div>
+                            <span className="text-[11px] font-black text-emerald-600 dark:text-emerald-400">{row.score}</span>
+                          </div>
+                        ))}
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
             </div>
           </div>
         </div>
@@ -1079,6 +1214,43 @@ export const ShowcaseView: React.FC = () => {
                 )}
               </div>
             </div>
+          </div>
+        </div>
+      </section>
+
+      {/* 10bis. CTA Banner */}
+      <section className="relative overflow-hidden bg-gradient-to-br from-[#142B49] via-[#1a385f] to-blue-900 py-16 sm:py-20">
+        <div
+          className="absolute inset-0 opacity-10 bg-[radial-gradient(#ffffff_1px,transparent_1px)] [background-size:24px_24px] pointer-events-none"
+          aria-hidden="true"
+        />
+        <div className="relative max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center space-y-6">
+          <div className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-white/10 border border-white/20 text-xs font-semibold text-blue-200">
+            <Sparkles className="w-3.5 h-3.5 text-amber-300" />
+            <span>Rentrée {currentEstablishment.currentYear}</span>
+          </div>
+          <h3 className="text-2xl sm:text-4xl font-black text-white tracking-tight leading-tight">
+            Prêt à rejoindre le {currentEstablishment.name} ?
+          </h3>
+          <p className="text-sm sm:text-base text-slate-300 max-w-xl mx-auto">
+            Déposez une demande de pré-inscription en ligne ou accédez directement à votre
+            espace si vous faites déjà partie de l'établissement.
+          </p>
+          <div className="flex flex-wrap items-center justify-center gap-3 pt-2">
+            <button
+              onClick={() => setShowPreRegisterModal(true)}
+              className="px-6 py-3.5 rounded-xl bg-amber-400 hover:bg-amber-300 text-[#142B49] font-extrabold text-sm shadow-xl shadow-amber-500/20 transition-all flex items-center gap-2 cursor-pointer"
+            >
+              <UserPlus className="w-4 h-4" />
+              <span>Demande de Pré-inscription</span>
+            </button>
+            <a
+              href="#portails"
+              className="px-6 py-3.5 rounded-xl bg-white/10 hover:bg-white/20 text-white font-bold text-sm border border-white/20 transition-all flex items-center gap-2 cursor-pointer"
+            >
+              <Lock className="w-4 h-4 text-amber-300" />
+              <span>Accéder aux Portails Scolaires</span>
+            </a>
           </div>
         </div>
       </section>
