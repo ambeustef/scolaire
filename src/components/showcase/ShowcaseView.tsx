@@ -964,6 +964,39 @@ export const ShowcaseView: React.FC = () => {
               </p>
             </div>
           </div>
+
+          {/* Photo gallery — real campus photos */}
+          <div className="mt-14">
+            <h4 className="text-sm font-bold text-slate-900 dark:text-white mb-4">
+              La vie du collège en images
+            </h4>
+            <div className="grid grid-cols-2 lg:grid-cols-4 gap-3 sm:gap-4">
+              <img
+                src="/images/campus/assemblee-generale.webp"
+                alt="Rassemblement des élèves sous les tentes, dans la cour du collège"
+                className="w-full aspect-[4/3] object-cover rounded-2xl border border-slate-200 dark:border-slate-700 shadow-sm hover:shadow-lg transition-shadow"
+                loading="lazy"
+              />
+              <img
+                src="/images/campus/equipe-direction.webp"
+                alt="Membres de l'équipe pédagogique dans la cour du collège"
+                className="w-full aspect-[4/3] object-cover rounded-2xl border border-slate-200 dark:border-slate-700 shadow-sm hover:shadow-lg transition-shadow"
+                loading="lazy"
+              />
+              <img
+                src="/images/campus/galerie-batiments.webp"
+                alt="Galerie couverte reliant les salles de classe"
+                className="w-full aspect-[4/3] object-cover rounded-2xl border border-slate-200 dark:border-slate-700 shadow-sm hover:shadow-lg transition-shadow"
+                loading="lazy"
+              />
+              <img
+                src="/images/campus/cour-drapeau.webp"
+                alt="Cour d'honneur et mât des couleurs du collège"
+                className="w-full aspect-[4/3] object-cover rounded-2xl border border-slate-200 dark:border-slate-700 shadow-sm hover:shadow-lg transition-shadow"
+                loading="lazy"
+              />
+            </div>
+          </div>
         </div>
       </section>
 
