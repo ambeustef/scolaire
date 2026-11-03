@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import {
   School,
   LogIn,
@@ -56,6 +56,15 @@ export const ShowcaseView: React.FC = () => {
   const [showPreRegisterModal, setShowPreRegisterModal] = useState(false);
   const [defaultLoginRole, setDefaultLoginRole] = useState<UserRole | undefined>(undefined);
   const [showMobileNav, setShowMobileNav] = useState(false);
+
+  // Live clock shown in the header, next to the login / access button
+  const [now, setNow] = useState(new Date());
+  useEffect(() => {
+    const timer = setInterval(() => setNow(new Date()), 1000);
+    return () => clearInterval(timer);
+  }, []);
+  const headerDay = now.toLocaleDateString('fr-FR', { weekday: 'short' });
+  const headerTime = now.toLocaleTimeString('fr-FR', { hour: '2-digit', minute: '2-digit' });
 
   const navLinks = [
     { href: '#presentation', label: 'Présentation' },
@@ -152,7 +161,7 @@ export const ShowcaseView: React.FC = () => {
 
       {/* 2. Main Navigation Bar */}
       <header className="sticky top-0 z-40 bg-white/95 dark:bg-slate-900/95 backdrop-blur-md border-b border-slate-200 dark:border-slate-800 transition-colors">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between gap-3">
+        <div className="max-w-7xl 2xl:max-w-[90rem] mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between gap-3">
           {/* Logo & School Identity */}
           <div className="flex items-center gap-2.5 sm:gap-3.5 min-w-0 shrink">
             <div className="w-10 h-10 sm:w-12 sm:h-12 rounded-2xl bg-gradient-to-br from-[#142B49] to-blue-700 text-white flex items-center justify-center shadow-lg shadow-blue-900/20 ring-2 ring-blue-500/20 shrink-0">
@@ -225,6 +234,12 @@ export const ShowcaseView: React.FC = () => {
                 <span>Se Connecter</span>
               </button>
             )}
+
+            {/* Live clock — day & time, shown once there's ample room (avoids re-cramping the xl nav layout) */}
+            <div className="hidden 2xl:flex items-center gap-1 text-xs font-bold text-slate-500 dark:text-slate-400 whitespace-nowrap shrink-0">
+              <span className="capitalize">{headerDay}</span>
+              <span className="tabular-nums text-slate-700 dark:text-slate-200">{headerTime}</span>
+            </div>
 
             {/* Mobile / tablet nav toggle — covers the range where the inline nav is hidden */}
             <button
